@@ -1,0 +1,5 @@
+module Kibana
+  module Rails
+    VERSION = "0.0.1"
+  end
+end
