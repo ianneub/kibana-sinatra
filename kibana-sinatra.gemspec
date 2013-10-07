@@ -5,7 +5,7 @@ require 'kibana/sinatra/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "kibana-sinatra"
-  spec.version       = Kibana::Rails::VERSION
+  spec.version       = Kibana::Sinatra::VERSION
   spec.authors       = ["Ian Neubert"]
   spec.email         = ["ian@ianneubert.com"]
   spec.description   = %q{TODO: Write a gem description}
