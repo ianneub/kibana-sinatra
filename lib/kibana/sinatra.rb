@@ -1,7 +1,7 @@
-require "kibana/rails/version"
+require "kibana/sinatra/version"
 
 module Kibana
-  module Rails
+  module Sinatra
     # Your code goes here...
   end
 end

@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'kibana/rails/version'
+require 'kibana/sinatra/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "kibana-rails"
+  spec.name          = "kibana-sinatra"
   spec.version       = Kibana::Rails::VERSION
   spec.authors       = ["Ian Neubert"]
   spec.email         = ["ian@ianneubert.com"]
   spec.description   = %q{TODO: Write a gem description}
   spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = "http://github.com/ianneub/kibana-rails"
+  spec.homepage      = "http://github.com/ianneub/kibana-sinatra"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "sinatra", "~> 1.4"
 end
