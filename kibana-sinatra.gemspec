@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Kibana::Sinatra::VERSION
   spec.authors       = ["Ian Neubert"]
   spec.email         = ["ian@ianneubert.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{This gem packages up Kibana 3 into a Sinatra app that can be used stand alone, or with Rails.}
+  spec.summary       = %q{This gem packages up Kibana 3 into a Sinatra app that can be used stand alone, or with Rails.}
   spec.homepage      = "http://github.com/ianneub/kibana-sinatra"
   spec.license       = "MIT"
 
