@@ -1,5 +1,7 @@
 # Kibana::Sinatra
 
+[![Dependency Status](https://gemnasium.com/ianneub/kibana-sinatra.png)](https://gemnasium.com/ianneub/kibana-sinatra)
+
 This gem provides [Kibana 3](https://github.com/elasticsearch/kibana) inside a [Sinatra](http://www.sinatrarb.com/) app that you can include in any Rack based system, including Rails.
 
 ## Installation
