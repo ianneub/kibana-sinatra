@@ -15,11 +15,11 @@ module Kibana
         erb :config
       end
 
-      def self.elasticsearch_url
+      def elasticsearch_url
         "http://\"+window.location.hostname+\":9200"
       end
 
-      def self.kibana_index
+      def kibana_index
         "kibana-int"
       end
     end
