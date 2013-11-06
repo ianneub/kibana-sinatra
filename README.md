@@ -31,11 +31,11 @@ Create a new file in `config/initializers` and include the following code. Repla
 ```ruby
 module Kibana::Sinatra
   class Web
-    def self.elasticsearch_url
+    def elasticsearch_url
       "http://\"+window.location.hostname+\":9200"
     end
     
-    def self.kibana_index
+    def kibana_index
       "kibana-int"
     end
   end
