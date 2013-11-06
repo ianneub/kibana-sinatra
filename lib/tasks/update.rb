@@ -35,8 +35,8 @@ task :update do
   config_file = "#{asset_path}/../views/config.erb"
   FileUtils.mv "#{asset_path}/config.js", config_file
   text = File.read(config_file)
-  text.gsub!('http://"+window.location.hostname+":9200', '<%= Kibana::Sinatra::Web.elasticsearch_url %>')
-  text.gsub!('"kibana-int"', '"<%= Kibana::Sinatra::Web.kibana_index %>"')
+  text.gsub!('http://"+window.location.hostname+":9200', '<%= elasticsearch_url %>')
+  text.gsub!('"kibana-int"', '"<%= kibana_index %>"')
   File.open(config_file, "w") {|file| file.write(text) }
 end
 
