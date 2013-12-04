@@ -6,7 +6,7 @@
 
 This gem provides [Kibana 3](https://github.com/elasticsearch/kibana) inside a [Sinatra](http://www.sinatrarb.com/) app that you can include in any Rack based system, including Rails.
 
-It is currently based on Kibana 3 commit [f194336277280467f4d27ab8b65c8f69c5c7122e](https://github.com/elasticsearch/kibana/commits/master)
+It is currently based on Kibana 3 commit [0efdd461df712efea6024d9055791d1025c9e1ed](https://github.com/elasticsearch/kibana/commits/master)
 
 ## Installation
 
