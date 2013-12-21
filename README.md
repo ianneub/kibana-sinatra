@@ -62,11 +62,12 @@ And add config.ru on top of your directory.
 require 'sinatra'
 require 'kibana/sinatra/web'
 
-# If you need configure elasticsearch_url, put here some codes just like above example.
+# If you need to configure elasticsearch_url, put your configuration here just like the Rails example.
+
 run Kibana::Sinatra::Web
 ```
 
-At last, you need to just rackup.
+At last, you need to just run rackup.
 
 ```
 rackup
@@ -79,3 +80,7 @@ rackup
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Contributors
+
+Thanks for all the help to our [awesome contributors](https://github.com/ianneub/kibana-sinatra/graphs/contributors)!
