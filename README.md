@@ -36,7 +36,7 @@ module Kibana::Sinatra
     def elasticsearch_url
       "http://\"+window.location.hostname+\":9200"
     end
-    
+
     def kibana_index
       "kibana-int"
     end
@@ -47,10 +47,30 @@ end
 In your `config/routes.rb` file mount the Kibana::Sinatra::Web class to a route:
 
     mount Kibana::Sinatra::Web => '/kibana', :trailing_slash => true
-    
+
 The trailing slash is important due to the way Kibana links to CSS & JS files.
 
 Start your server and you should now be able to load `/kibana/` and Kibana 3 should start up!
+
+### Launch as Rack app
+
+First you will need to configure Kibana's config.js same as "Inside Rails".
+
+And add config.ru on top of your directory.
+
+```ruby
+require 'sinatra'
+require 'kibana/sinatra/web'
+
+# If you need configure elasticsearch_url, put here some codes just like above example.
+run Kibana::Sinatra::Web
+```
+
+At last, you need to just rackup.
+
+```
+rackup
+```
 
 ## Contributing
 
