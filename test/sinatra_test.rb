@@ -1,10 +1,10 @@
 ENV['RACK_ENV'] = 'test'
 
 require 'kibana/sinatra'
-require 'test/unit'
+require 'minitest/autorun'
 require 'rack/test'
 
-class SinatraTest < Test::Unit::TestCase
+class SinatraTest < Minitest::Unit::TestCase
   include Rack::Test::Methods
 
   def app
