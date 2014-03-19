@@ -4,9 +4,7 @@
 [![Build Status](https://travis-ci.org/ianneub/kibana-sinatra.png)](https://travis-ci.org/ianneub/kibana-sinatra)
 [![Gem Version](https://badge.fury.io/rb/kibana-sinatra.png)](http://badge.fury.io/rb/kibana-sinatra)
 
-This gem provides [Kibana 3](https://github.com/elasticsearch/kibana) inside a [Sinatra](http://www.sinatrarb.com/) app that you can include in any Rack based system, including Rails.
-
-It is currently based on Kibana 3 commit [84ed4069f7797a9e364e050063e6897927d2a0d7](https://github.com/elasticsearch/kibana/commits/84ed4069f7797a9e364e050063e6897927d2a0d7)
+This gem provides [Kibana 3](https://github.com/elasticsearch/kibana) inside a [Sinatra](http://www.sinatrarb.com/) app that you can include in any [Rack](https://github.com/rack/rack) based system, including [Rails](http://www.rubyonrails.org/).
 
 ## Installation
 
@@ -72,6 +70,14 @@ At last, you need to just run rackup.
 ```
 rackup
 ```
+
+## Versions
+
+Kibana-sinatra's version number will match the upstream Kibana version number, plus an additional build number. For example:
+
+Kibana-sinatra v.`3.0.0.0` is equivalent to upstream Kibana v.`3.0.0`, and is our build `0`.
+
+We aim to keep in step with Kibana's released versions.
 
 ## Contributing
 
