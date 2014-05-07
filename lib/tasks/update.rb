@@ -5,9 +5,11 @@ require 'zip'
 
 desc "Update kibana from upstream"
 task :update do
+  raise "You must set the KIBANA_VERSION environment variable." unless ENV['KIBANA_VERSION']
+
   asset_path = File.expand_path(File.dirname(__FILE__) + "/../kibana/assets")
-  download_url = 'https://github.com/elasticsearch/kibana/archive/master.zip'
-  download_file = "/tmp/#{UUID.new.generate}_master.zip"
+  download_url = "https://github.com/elasticsearch/kibana/archive/v#{ENV['KIBANA_VERSION']}.zip"
+  download_file = "/tmp/#{UUID.new.generate}_#{ENV['KIBANA_VERSION']}.zip"
   tmp_path = "/tmp/#{UUID.new.generate}"
   
   # Remove kibana assets
@@ -16,7 +18,7 @@ task :update do
   # Create the tmp folder
   FileUtils.mkdir(tmp_path)
 
-  # Download latest kibana from github
+  # Download kibana from github
   File.open(download_file, "wb") do |file|
     file.write open(download_url).read
   end
@@ -25,7 +27,7 @@ task :update do
   unzip_file download_file, tmp_path
 
   # Copy src contents to asset folder
-  FileUtils.mv "#{tmp_path}/kibana-master/src", asset_path
+  FileUtils.mv "#{tmp_path}/kibana-#{ENV['KIBANA_VERSION']}/src", asset_path
 
   # Delete tmp folder and downloaded file
   FileUtils.rm_rf(tmp_path)
