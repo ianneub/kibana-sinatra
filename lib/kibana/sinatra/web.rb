@@ -15,6 +15,10 @@ module Kibana
         erb :config
       end
 
+      get '/app/dashboards/:name' do
+        render_dashboard params[:name]
+      end
+
       def elasticsearch_url
         "http://\"+window.location.hostname+\":9200"
       end
@@ -25,6 +29,10 @@ module Kibana
 
       def default_route
         "/dashboard/file/default.json"
+      end
+
+      def render_dashboard(name)
+        status 404
       end
     end
 

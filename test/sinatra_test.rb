@@ -65,17 +65,49 @@ class SinatraTest < Minitest::Unit::TestCase
     end
   end
 
+  def test_it_renders_kibana_builtin_dashboard
+    get '/app/dashboards/default.json'
+    assert last_response.ok?
+    assert_equal 4140, last_response.body.length
+  end
+
+  def test_it_renders_kibana_builtin_dashboard_when_custom_present
+    render_dashboard = Proc.new {|name| "asdf" }
+
+    monkey_patch "render_dashboard", render_dashboard do
+      get '/app/dashboards/default.json'
+      assert last_response.ok?
+      assert_equal 4140, last_response.body.length
+    end
+  end
+
+  def test_it_renders_default_dashboard
+    get '/app/dashboards/asdf.json'
+    assert last_response.not_found?
+    assert_equal 0, last_response.body.length
+  end
+
+  def test_it_renders_custom_dashboard
+    render_dashboard = Proc.new {|name| "asdf" }
+
+    monkey_patch "render_dashboard", render_dashboard do
+      get '/app/dashboards/testing.json'
+      assert last_response.ok?
+      assert_equal "asdf", last_response.body
+    end
+  end
+
   def monkey_patch(method_name, method_replacement)
     Kibana::Sinatra::Web.class_eval do
-      alias_method "old_#{method_name}", method_name
+      alias_method "original_#{method_name}", method_name
       define_method method_name, method_replacement
     end
     
     yield
-
+  ensure
     Kibana::Sinatra::Web.class_eval do
-      alias_method method_name, "old_#{method_name}"
-      remove_method "old_#{method_name}"
+      alias_method method_name, "original_#{method_name}"
+      remove_method "original_#{method_name}"
     end
   end
 end

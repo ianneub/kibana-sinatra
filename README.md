@@ -75,6 +75,24 @@ At last, you need to just run rackup.
 rackup
 ```
 
+### Custom dashboards
+
+If you would like to include custom dashboard JSON files you can do so by overriding the `render_dashboard(name)` method. This method requires a single parameter `name` that will contain the filename requested. For example, if the browser requests `/app/dashboards/test.json`, then `test.json` will be assigned to the `name` parameter.
+
+This method should return the JSON as a string.
+
+You could then make that JSON file the default by overriding `default_route` like this:
+
+```ruby
+module Kibana::Sinatra
+  class Web
+    def default_route
+      "/dashboard/file/test.json"
+    end
+  end
+end
+```
+
 ## Versions
 
 Kibana-sinatra's version number will match the upstream Kibana version number, plus an additional build number. For example:
