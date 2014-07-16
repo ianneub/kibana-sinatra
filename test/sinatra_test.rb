@@ -23,6 +23,12 @@ class SinatraTest < Minitest::Unit::TestCase
     assert last_response.body.include?('elasticsearch: "http://"+window.location.hostname+":9200"')
   end
 
+  def test_it_renders_config_with_default_default_route
+    get '/config.js'
+    assert last_response.ok?
+    assert last_response.body.include?('default_route     : \'/dashboard/file/default.json\'')
+  end
+
   def test_it_renders_config_with_custom_elasticsearch_url
     elasticsearch_url = Proc.new { "http://asdf.com:9200" }
 
@@ -46,6 +52,16 @@ class SinatraTest < Minitest::Unit::TestCase
       get '/config.js'
       assert last_response.ok?
       assert last_response.body.include?('kibana_index: "asdf"')
+    end
+  end
+
+  def test_it_renders_config_with_custom_default_route
+    default_route = Proc.new { "asdf" }
+
+    monkey_patch "default_route", default_route do
+      get '/config.js'
+      assert last_response.ok?
+      assert last_response.body.include?('default_route     : \'asdf\'')
     end
   end
 

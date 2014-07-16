@@ -39,6 +39,7 @@ task :update do
   text = File.read(config_file)
   text.gsub!('http://"+window.location.hostname+":9200', '<%= elasticsearch_url %>')
   text.gsub!('"kibana-int"', '"<%= kibana_index %>"')
+  text.gsub!('\'/dashboard/file/default.json\'', '\'<%= default_route %>\'')
   File.open(config_file, "w") {|file| file.write(text) }
 end
 

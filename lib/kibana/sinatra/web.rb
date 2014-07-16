@@ -22,6 +22,10 @@ module Kibana
       def kibana_index
         "kibana-int"
       end
+
+      def default_route
+        "/dashboard/file/default.json"
+      end
     end
 
   end

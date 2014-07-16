@@ -26,7 +26,7 @@ Or install it yourself as:
 
 First you will need to configure Kibana's config.js file so that a web browser can find your [elasticsearch](http://www.elasticsearch.org/) cluster.
 
-Create a new file in `config/initializers` and include the following code. Replace the strings with the location of your elasticsearch cluster and the kibana index. Note that both of these are optional.
+Create a new file in `config/initializers` and include the following code. Replace the strings with the location of your elasticsearch cluster and the kibana index. You may also set the default_route. Note that all of these are optional. Please refer to the [Kibana config file](https://github.com/elasticsearch/kibana/blob/master/src/config.js) for explanations of what these settings do.
 
 ```ruby
 module Kibana::Sinatra
@@ -37,6 +37,10 @@ module Kibana::Sinatra
 
     def kibana_index
       "kibana-int"
+    end
+
+    def default_route
+      "/dashboard/elasticsearch/asdf"
     end
   end
 end
