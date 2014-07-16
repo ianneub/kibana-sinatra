@@ -81,11 +81,23 @@ If you would like to include custom dashboard JSON files you can do so by overri
 
 This method should return the JSON as a string.
 
-You could then make that JSON file the default by overriding `default_route` like this:
+You could then make that JSON file the default by overriding `default_route`.
+
+Here is a full example:
 
 ```ruby
 module Kibana::Sinatra
   class Web
+
+    def render_dashboard(name)
+      case name
+      when "test.json"
+        "{}"
+      when "asdf.json"
+        {}.to_json
+      end
+    end
+
     def default_route
       "/dashboard/file/test.json"
     end
