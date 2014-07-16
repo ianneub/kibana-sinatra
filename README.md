@@ -93,6 +93,8 @@ module Kibana::Sinatra
 end
 ```
 
+Please note there are some [built in dashboard](https://github.com/ianneub/kibana-sinatra/tree/master/lib/kibana/assets/app/dashboards) files that you will **NOT** be able to override.
+
 ## Versions
 
 Kibana-sinatra's version number will match the upstream Kibana version number, plus an additional build number. For example:
