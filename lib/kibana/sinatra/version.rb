@@ -1,5 +1,5 @@
 module Kibana
   module Sinatra
-    VERSION = "3.1.0.2"
+    VERSION = "3.1.1.0"
   end
 end
