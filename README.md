@@ -8,7 +8,7 @@ This gem provides [Kibana 3](https://github.com/elasticsearch/kibana) inside a [
 
 ## Deprecation Notice
 
-With the release of Kibana 4, I believe this gem should now be considered depricated. Kibana 4 requires that a server be running in the backend in order for the front end JS to work. At this time I am not sure how feasable it is to wrap up that server in a Sinatra or a Rack app. Perhaps the folks at [kibana-rack](https://github.com/tabolario/kibana-rack) will update and handle it? In the meantime I have been running the app inside a Docker container: [marcbachmann/kibana4](https://registry.hub.docker.com/u/marcbachmann/kibana4/)
+With the release of Kibana 4, I believe this gem should now be considered deprecated. Kibana 4 requires that a server be running in the backend in order for the front end JS to work. At this time I am not sure how feasable it is to wrap up that server in a Sinatra or a Rack app. Perhaps the folks at [kibana-rack](https://github.com/tabolario/kibana-rack) will update and handle it? In the meantime I have been running the app inside a Docker container: [marcbachmann/kibana4](https://registry.hub.docker.com/u/marcbachmann/kibana4/)
 
 ## Installation
 
